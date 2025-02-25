@@ -1,0 +1,171 @@
+package esercizi;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class ContaOccorrenzeParole implements Parole {
+	
+	private String strInput;
+	
+	private int maxParole;
+	
+	private String paroleInput;
+	
+	private String[] paroleInputArr;
+	
+	private Map<String, Integer> wordsOccurrences = new HashMap<>();
+
+	public static void main(String[] args) {
+		ContaOccorrenzeParole contaOccorrenzeParole = new ContaOccorrenzeParole();
+		contaOccorrenzeParole.run();
+
+	}
+	
+	private void run() {
+		System.out.println("play");
+	}
+	
+	// Inizializza solo l'istanza senza alcuna parola predefinita
+	ContaOccorrenzeParole () {
+		
+	}
+	
+	ContaOccorrenzeParole (int maxParole) {
+		this.maxParole = maxParole;
+	}
+	
+	/* TODO Richiama una funzione che separa le parole e elimina gli spazi,
+	poi richiami anche una funzione che salva tutte le parole dentro la map */
+	ContaOccorrenzeParole (String paroleInput) {
+		this.paroleInput = paroleInput;
+	}
+	
+	// TODO Richiama una funzione che aggiunge le parole alla map es. populateFromString()
+	ContaOccorrenzeParole (String ... parola) { // VarArg parola,parola2,..parolan
+		this.paroleInputArr = parola;
+	}
+
+	// Questa funzione aggiunge la parola passata nella mappa
+	@Override
+	public void addParola(String parola) {
+		
+		String parolaLC = parola.toLowerCase();
+		
+		// Se è già presente incremento il valore di 1, altrimenti la inserisco nella mappa e la inizializzo a 1
+		if (this.exists(parolaLC)) {
+			
+			// Prendo il numero di occorrenze della stringa corrente
+			int occurrencesNumber = this.wordsOccurrences.get(parolaLC);
+			
+			// Incremento di 1 il counter di occorrenze
+			this.wordsOccurrences.put(parolaLC, ++occurrencesNumber);
+			
+		} else {
+			// Creo un nuovo elemento e lo inizializzo a 1
+			this.wordsOccurrences.put(parolaLC, 1);
+		}
+	}
+
+	// Questa funzione controlla se la parola passata esiste dentro la mappa
+	@Override
+	public boolean exists(String parola) {
+		
+		String parolaLC = parola.toLowerCase();
+		
+		// Ritorna true se si trova all'interno, altrimenti false
+		return this.wordsOccurrences.containsKey(parolaLC);
+
+	}
+
+	// Questa funzione elimina l'elemento con la chiave uguale alla parola passata
+	@Override
+	public boolean deleteParola(String parola) {
+		
+		String parolaLC = parola.toLowerCase();
+		
+		if (this.exists(parolaLC)) {
+			
+			// Elimino parola
+			this.wordsOccurrences.remove(parolaLC);
+			return true;
+			
+		} else {
+			return false;
+		}
+		
+	}
+
+	// Questa funzione conta le parole presenti nella mappa
+	@Override
+	public int contaParole() {
+		return this.wordsOccurrences.keySet().size();
+	}
+
+	// Questa funzione restituisce il numero di occorrenze della parola passata
+	@Override
+	public int occorrenzeParola(String parola) {
+		
+		String parolaLC = parola.toLowerCase();
+		
+		// Se esiste la parola nella mappa ritorno il numero di occorrenze
+		if (this.exists(parolaLC)) {
+			
+			return this.wordsOccurrences.get(parolaLC);
+		}
+		
+		// Altrimenti torno 0
+		return 0;
+	}
+
+	// Questa funzione ritorna le parole che hanno il numero massimo di occorrenze
+	@Override
+	public String[] paroleConMaxOccorrenze() {
+		
+		List<String> wordList = new ArrayList<>();
+		
+		// Mi ciclo tutte le parole per vedere l'ocorrenza max
+		int maxOccurrences = this.maxOccorrenzeNum();
+		
+		// Per ogni parola, se il suo valore è uguale a "maxOccurrences" lo aggiungo a "wordList"
+		for (Map.Entry<String, Integer> singleWord : this.wordsOccurrences.entrySet()) {
+			
+			if (singleWord.getValue() == maxOccurrences) {
+				wordList.add(singleWord.getKey());
+			}
+ 		}
+		
+		return (String[]) wordList.toArray();
+	}
+
+	// Questo funzione ritorna il numero massimo di occorrenze
+	@Override
+	public int maxOccorrenzeNum() {
+		
+		int maxOccurrences = 0;
+				
+		for (Map.Entry<String, Integer> singleWord : this.wordsOccurrences.entrySet()) {
+			
+			// Se le occorrenze della parola sono maggiori di quelli salvati, sovrascrivi
+			if (singleWord.getValue() > maxOccurrences) {
+				maxOccurrences = singleWord.getValue();
+			}
+ 		}
+		
+		return maxOccurrences;
+	}
+
+	// Questa funzione trasforma la mappa di parole in un array di stringhe
+	@Override
+	public String[] toArrayParole() {
+		return (String[]) this.wordsOccurrences.entrySet().toArray();
+	}
+
+	@Override
+	public void setInputString(String strInput) {
+		this.strInput = strInput;
+	}
+
+}
