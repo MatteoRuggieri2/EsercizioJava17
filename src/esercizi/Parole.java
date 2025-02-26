@@ -23,7 +23,7 @@ public interface Parole {
 	/* Restituisce il numero massimo di occorrenze */
 	public int maxOccorrenzeNum();
 	
-	/* Restituisceun array con tutte la parole inserite */
+	/* Restituisce un array con tutte le parole inserite */
 	public String[] toArrayParole();
 	
 	/* Imposta la stringa sulla quale operare */

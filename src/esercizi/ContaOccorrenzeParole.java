@@ -48,6 +48,7 @@ public class ContaOccorrenzeParole implements Parole {
 		this.paroleInputArr = parola;
 	}
 
+	// OK
 	// Questa funzione aggiunge la parola passata nella mappa
 	@Override
 	public void addParola(String parola) {
@@ -55,7 +56,7 @@ public class ContaOccorrenzeParole implements Parole {
 		String parolaLC = parola.toLowerCase();
 		
 		// Se è già presente incremento il valore di 1, altrimenti la inserisco nella mappa e la inizializzo a 1
-		if (this.exists(parolaLC)) {
+		if (exists(parolaLC)) {
 			
 			// Prendo il numero di occorrenze della stringa corrente
 			int occurrencesNumber = this.wordsOccurrences.get(parolaLC);
@@ -69,6 +70,7 @@ public class ContaOccorrenzeParole implements Parole {
 		}
 	}
 
+	// OK
 	// Questa funzione controlla se la parola passata esiste dentro la mappa
 	@Override
 	public boolean exists(String parola) {
@@ -80,13 +82,14 @@ public class ContaOccorrenzeParole implements Parole {
 
 	}
 
+	// OK
 	// Questa funzione elimina l'elemento con la chiave uguale alla parola passata
 	@Override
 	public boolean deleteParola(String parola) {
 		
 		String parolaLC = parola.toLowerCase();
 		
-		if (this.exists(parolaLC)) {
+		if (exists(parolaLC)) {
 			
 			// Elimino parola
 			this.wordsOccurrences.remove(parolaLC);
@@ -98,12 +101,14 @@ public class ContaOccorrenzeParole implements Parole {
 		
 	}
 
+	// OK
 	// Questa funzione conta le parole presenti nella mappa
 	@Override
 	public int contaParole() {
 		return this.wordsOccurrences.keySet().size();
 	}
 
+	// OK
 	// Questa funzione restituisce il numero di occorrenze della parola passata
 	@Override
 	public int occorrenzeParola(String parola) {
@@ -111,13 +116,12 @@ public class ContaOccorrenzeParole implements Parole {
 		String parolaLC = parola.toLowerCase();
 		
 		// Se esiste la parola nella mappa ritorno il numero di occorrenze
-		if (this.exists(parolaLC)) {
-			
+		if (exists(parolaLC)) {
 			return this.wordsOccurrences.get(parolaLC);
 		}
 		
-		// Altrimenti torno 0
-		return 0;
+		// Altrimenti torno -1
+		return -1;
 	}
 
 	// Questa funzione ritorna le parole che hanno il numero massimo di occorrenze
