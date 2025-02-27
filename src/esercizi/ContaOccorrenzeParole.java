@@ -28,11 +28,12 @@ public class ContaOccorrenzeParole implements Parole {
 		System.out.println("play");
 	}
 	
-	// Inizializza solo l'istanza senza alcuna parola predefinita
+	// Inizializza l'istanza senza alcuna parola predefinita
 	ContaOccorrenzeParole () {
 		
 	}
 	
+	// Inizializza l'istanza senza alcuna parola predefinita, ma con un massimo impostato
 	ContaOccorrenzeParole (int maxParole) {
 		this.maxParole = maxParole;
 	}
@@ -48,7 +49,6 @@ public class ContaOccorrenzeParole implements Parole {
 		this.paroleInputArr = parola;
 	}
 
-	// OK
 	// Questa funzione aggiunge la parola passata nella mappa
 	@Override
 	public void addParola(String parola) {
@@ -70,7 +70,6 @@ public class ContaOccorrenzeParole implements Parole {
 		}
 	}
 
-	// OK
 	// Questa funzione controlla se la parola passata esiste dentro la mappa
 	@Override
 	public boolean exists(String parola) {
@@ -82,7 +81,6 @@ public class ContaOccorrenzeParole implements Parole {
 
 	}
 
-	// OK
 	// Questa funzione elimina l'elemento con la chiave uguale alla parola passata
 	@Override
 	public boolean deleteParola(String parola) {
@@ -101,14 +99,12 @@ public class ContaOccorrenzeParole implements Parole {
 		
 	}
 
-	// OK
 	// Questa funzione conta le parole presenti nella mappa
 	@Override
 	public int contaParole() {
 		return this.wordsOccurrences.keySet().size();
 	}
 
-	// OK
 	// Questa funzione restituisce il numero di occorrenze della parola passata
 	@Override
 	public int occorrenzeParola(String parola) {
@@ -131,7 +127,7 @@ public class ContaOccorrenzeParole implements Parole {
 		List<String> wordList = new ArrayList<>();
 		
 		// Mi ciclo tutte le parole per vedere l'ocorrenza max
-		int maxOccurrences = this.maxOccorrenzeNum();
+		int maxOccurrences = maxOccorrenzeNum();
 		
 		// Per ogni parola, se il suo valore è uguale a "maxOccurrences" lo aggiungo a "wordList"
 		for (Map.Entry<String, Integer> singleWord : this.wordsOccurrences.entrySet()) {
@@ -167,6 +163,7 @@ public class ContaOccorrenzeParole implements Parole {
 		return (String[]) this.wordsOccurrences.entrySet().toArray();
 	}
 
+	// Imposta la stringa sulla quale operare
 	@Override
 	public void setInputString(String strInput) {
 		this.strInput = strInput;
