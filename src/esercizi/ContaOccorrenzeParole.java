@@ -10,7 +10,7 @@ public class ContaOccorrenzeParole implements Parole {
 	
 	private String strInput;
 	
-	private int maxParole;
+	private int maxParole; //TODO Quando lo uso?
 	
 	private String paroleInput;
 	
