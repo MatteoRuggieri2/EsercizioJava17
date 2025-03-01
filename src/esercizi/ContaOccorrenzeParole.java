@@ -12,21 +12,21 @@ public class ContaOccorrenzeParole implements Parole {
 	
 	private int maxParole; //TODO Quando lo uso?
 	
-	private String paroleInput;
+//	private String paroleInput;
 	
-	private String[] paroleInputArr;
+//	private String[] paroleInputArr;
 	
 	private Map<String, Integer> wordsOccurrences = new HashMap<>();
 
-	public static void main(String[] args) {
-		ContaOccorrenzeParole contaOccorrenzeParole = new ContaOccorrenzeParole();
-		contaOccorrenzeParole.run();
-
-	}
+//	public static void main(String[] args) {
+//		ContaOccorrenzeParole contaOccorrenzeParole = new ContaOccorrenzeParole();
+//		contaOccorrenzeParole.run();
+//
+//	}
 	
-	private void run() {
-		System.out.println("play");
-	}
+//	private void run() {
+//		System.out.println("play");
+//	}
 	
 	// Inizializza l'istanza senza alcuna parola predefinita
 	ContaOccorrenzeParole () {
@@ -38,15 +38,15 @@ public class ContaOccorrenzeParole implements Parole {
 		this.maxParole = maxParole;
 	}
 	
-	/* TODO Richiama una funzione che separa le parole e elimina gli spazi,
-	poi richiami anche una funzione che salva tutte le parole dentro la map */
+	// Divido le parole, rimuovo gli spazi e le inserisco nella mappa
 	ContaOccorrenzeParole (String paroleInput) {
-		this.paroleInput = paroleInput;
+		insertWordsFromArrayToMap(paroleInput.split(" +"));
+		
 	}
 	
 	// TODO Richiama una funzione che aggiunge le parole alla map es. populateFromString()
 	ContaOccorrenzeParole (String ... parola) { // VarArg parola,parola2,..parolan
-		this.paroleInputArr = parola;
+//		this.paroleInputArr = parola;
 	}
 
 	// Questa funzione aggiunge la parola passata nella mappa
@@ -167,6 +167,13 @@ public class ContaOccorrenzeParole implements Parole {
 	@Override
 	public void setInputString(String strInput) {
 		this.strInput = strInput;
+	}
+	
+	// Inserisce tutte le parole di un array nella mappa "wordsOccurrences"
+	private void insertWordsFromArrayToMap(String[] words) {
+		for (String word : words) {
+			addParola(word);
+		}
 	}
 
 }
