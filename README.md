@@ -13,7 +13,7 @@ class ContaOccorrenzeParole implements Parole {
     ContaOccorrenzeParole ()
     ContaOccorrenzeParole (int maxParole) // 10
     ContaOccorrenzeParole (String paroleInput) // "parola1 parola2 par.."
-    ContaOccorrenzeParole (String ... parola) // parola1, parola2, ...
+    ContaOccorrenzeParole (String ... parole) // parola1, parola2, ...
 }
 ```
 
