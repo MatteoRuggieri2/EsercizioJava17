@@ -38,15 +38,15 @@ public class ContaOccorrenzeParole implements Parole {
 		this.maxParole = maxParole;
 	}
 	
-	// Divido le parole, rimuovo gli spazi e le inserisco nella mappa
+	// Divide le parole rimuovendo gli spazi e le inserisce nella mappa
 	ContaOccorrenzeParole (String paroleInput) {
 		insertWordsFromArrayToMap(paroleInput.split(" +"));
 		
 	}
 	
-	// TODO Richiama una funzione che aggiunge le parole alla map es. populateFromString()
-	ContaOccorrenzeParole (String ... parola) { // VarArg parola,parola2,..parolan
-//		this.paroleInputArr = parola;
+	// Prende le singole parole e le inserisce nella mappa
+	ContaOccorrenzeParole (String ... parole) { // VarArg parola,parola2,..parolan
+		insertWordsFromArrayToMap(parole);
 	}
 
 	// Questa funzione aggiunge la parola passata nella mappa
