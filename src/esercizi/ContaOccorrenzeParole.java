@@ -92,14 +92,10 @@ public class ContaOccorrenzeParole implements Parole {
 		String parolaLC = parola.toLowerCase();
 		
 		if (exists(parolaLC)) {
-			
-			// Elimino parola
 			this.wordsOccurrences.remove(parolaLC);
-			return true;
-			
-		} else {
-			return false;
 		}
+		
+		return this.wordsOccurrences.containsKey(parolaLC) ? false : true;
 		
 	}
 
