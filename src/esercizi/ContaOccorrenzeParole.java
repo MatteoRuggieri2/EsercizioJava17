@@ -55,19 +55,23 @@ public class ContaOccorrenzeParole implements Parole {
 		
 		String parolaLC = parola.toLowerCase();
 		
-		// Se è già presente incremento il valore di 1, altrimenti la inserisco nella mappa e la inizializzo a 1
-		if (exists(parolaLC)) {
+		if (this.wordsOccurrences.size() < this.maxParole) {
 			
-			// Prendo il numero di occorrenze della stringa corrente
-			int occurrencesNumber = this.wordsOccurrences.get(parolaLC);
-			
-			// Incremento di 1 il counter di occorrenze
-			this.wordsOccurrences.put(parolaLC, ++occurrencesNumber);
-			
-		} else {
-			// Creo un nuovo elemento e lo inizializzo a 1
-			this.wordsOccurrences.put(parolaLC, 1);
+			// Se è già presente incremento il valore di 1, altrimenti la inserisco nella mappa e la inizializzo a 1
+			if (exists(parolaLC)) {
+				
+				// Prendo il numero di occorrenze della stringa corrente
+				int occurrencesNumber = this.wordsOccurrences.get(parolaLC);
+				
+				// Incremento di 1 il counter di occorrenze
+				this.wordsOccurrences.put(parolaLC, ++occurrencesNumber);
+				
+			} else {
+				// Creo un nuovo elemento e lo inizializzo a 1
+				this.wordsOccurrences.put(parolaLC, 1);
+			}
 		}
+		
 	}
 
 	// Questa funzione controlla se la parola passata esiste dentro la mappa
