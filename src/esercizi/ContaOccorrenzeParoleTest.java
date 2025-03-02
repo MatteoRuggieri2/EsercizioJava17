@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class ContaOccorrenzeParoleTest {
@@ -47,6 +46,16 @@ class ContaOccorrenzeParoleTest {
 		wordsOccurrences.put("matteo", 1);
 		
 		cop = new ContaOccorrenzeParole(string);
+		assertTrue(wordsOccurrences.equals(cop.getWordsOccurrences()));
+	}
+	
+	@Test
+	void testCostructorVarArgs() {
+		Map<String, Integer> wordsOccurrences = new HashMap<>();
+		wordsOccurrences.put("schermo", 2);
+		wordsOccurrences.put("tastiera", 1);
+		
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo");
 		assertTrue(wordsOccurrences.equals(cop.getWordsOccurrences()));
 	}
 
