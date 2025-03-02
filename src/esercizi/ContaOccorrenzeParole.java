@@ -176,7 +176,7 @@ public class ContaOccorrenzeParole implements Parole {
 	// Questa funzione trasforma la mappa di parole in un array di stringhe
 	@Override
 	public String[] toArrayParole() {
-		return (String[]) this.wordsOccurrences.entrySet().toArray();
+		return this.wordsOccurrences.keySet().toArray(new String[0]);
 	}
 
 	// Imposta la stringa sulla quale operare

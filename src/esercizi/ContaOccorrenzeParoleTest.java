@@ -117,4 +117,17 @@ class ContaOccorrenzeParoleTest {
 		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse", "mouse");
 		assertEquals(2, cop.maxOccorrenzeNum());
 	}
+	
+	@Test
+	void testToArrayParole() {
+		String[] wordList = { "mela", "pera", "banana" };
+		
+		cop = new ContaOccorrenzeParole("mela", "pera", "banana");
+		String[] result = cop.toArrayParole();
+		
+		Arrays.sort(wordList);
+		Arrays.sort(result);
+		
+		assertArrayEquals(wordList, result);
+	}
 }
