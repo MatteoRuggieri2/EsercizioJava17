@@ -81,5 +81,18 @@ class ContaOccorrenzeParoleTest {
 		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse");
 		assertEquals(3, cop.contaParole());
 	}
+	
+	@Test
+	void testOccorrenzeParole() {
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse");
+		assertEquals(2, cop.occorrenzeParola("SCHERMO"));
+		assertEquals(2, cop.occorrenzeParola("Schermo"));
+		assertEquals(1, cop.occorrenzeParola("TASTIERA"));
+		assertEquals(1, cop.occorrenzeParola("Tastiera"));
+		assertEquals(1, cop.occorrenzeParola("MOUSE"));
+		assertEquals(1, cop.occorrenzeParola("Mouse"));
+		assertEquals(-1, cop.occorrenzeParola("WEBCAM"));
+		assertEquals(-1, cop.occorrenzeParola("Webcam"));
+	}
 
 }
