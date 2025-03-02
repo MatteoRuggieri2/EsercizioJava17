@@ -53,5 +53,16 @@ class ContaOccorrenzeParoleTest {
 		
 		assertTrue(wordsOccurrences.equals(cop.getWordsOccurrences()));
 	}
+	
+	@Test
+	void testExists() {
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo");
+		assertTrue(cop.exists("SCHERMO"));
+		assertTrue(cop.exists("Schermo"));
+		assertTrue(cop.exists("TASTIERA"));
+		assertTrue(cop.exists("Tastiera"));
+		assertFalse(cop.exists("MOUSE"));
+		assertFalse(cop.exists("Mouse"));
+	}
 
 }
