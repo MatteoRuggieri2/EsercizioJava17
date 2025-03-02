@@ -111,4 +111,10 @@ class ContaOccorrenzeParoleTest {
 
 		assertArrayEquals(wordList, result);
 	}
+	
+	@Test
+	void testMaxOccorrenzeNum() {
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse", "mouse");
+		assertEquals(2, cop.maxOccorrenzeNum());
+	}
 }
