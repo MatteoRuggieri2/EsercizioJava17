@@ -75,5 +75,11 @@ class ContaOccorrenzeParoleTest {
 		assertFalse(cop.getWordsOccurrences().containsKey("mouse"));
 		assertTrue(cop.getWordsOccurrences().containsKey("tastiera"));
 	}
+	
+	@Test
+	void testContaParole() {
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse");
+		assertEquals(3, cop.contaParole());
+	}
 
 }
