@@ -130,4 +130,20 @@ class ContaOccorrenzeParoleTest {
 		
 		assertArrayEquals(wordList, result);
 	}
+	
+	@Test
+	void testSetInputString() {
+		String strInput = "NVidia RTX 5090";
+		
+		Map<String, Integer> wordsOccurrences = new HashMap<>();
+		wordsOccurrences.put("nvidia", 1);
+		wordsOccurrences.put("rtx", 1);
+		wordsOccurrences.put("5090", 1);
+		
+		cop = new ContaOccorrenzeParole();
+		cop.setInputString(strInput);
+		
+		assertEquals(strInput, cop.getStrInput());
+		assertTrue(wordsOccurrences.equals(cop.getWordsOccurrences()));
+	}
 }
