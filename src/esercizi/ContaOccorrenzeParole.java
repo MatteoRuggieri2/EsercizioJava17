@@ -14,6 +14,7 @@ public class ContaOccorrenzeParole implements Parole {
 	private Map<String, Integer> wordsOccurrences = new HashMap<>();
 	
 	
+	
 	// Inizializza l'istanza senza alcuna parola predefinita
 	ContaOccorrenzeParole () {
 		
@@ -34,7 +35,35 @@ public class ContaOccorrenzeParole implements Parole {
 	ContaOccorrenzeParole (String ... parole) { // VarArg parola,parola2,..parolan
 		insertWordsFromArrayToMap(parole);
 	}
+	
+	
 
+	public String getStrInput() {
+		return strInput;
+	}
+
+	public void setStrInput(String strInput) {
+		this.strInput = strInput;
+	}
+
+	public int getMaxParole() {
+		return maxParole;
+	}
+
+	public void setMaxParole(int maxParole) {
+		this.maxParole = maxParole;
+	}
+
+	public Map<String, Integer> getWordsOccurrences() {
+		return wordsOccurrences;
+	}
+
+	public void setWordsOccurrences(Map<String, Integer> wordsOccurrences) {
+		this.wordsOccurrences = wordsOccurrences;
+	}
+
+	
+	
 	// Questa funzione aggiunge la parola passata nella mappa
 	@Override
 	public void addParola(String parola) {

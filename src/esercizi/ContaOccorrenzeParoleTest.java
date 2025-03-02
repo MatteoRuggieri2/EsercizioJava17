@@ -33,7 +33,8 @@ class ContaOccorrenzeParoleTest {
 	
 	@Test
 	void testCostructorMaxWords() {
-		
+		cop = new ContaOccorrenzeParole(10);
+		assertEquals(10, cop.getMaxParole());
 	}
 
 }
