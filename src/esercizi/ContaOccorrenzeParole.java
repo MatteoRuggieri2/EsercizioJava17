@@ -9,7 +9,7 @@ public class ContaOccorrenzeParole implements Parole {
 	
 	private String strInput;
 	
-	private int maxParole;
+	private int maxParole = -1;
 	
 	private Map<String, Integer> wordsOccurrences = new HashMap<>();
 	
@@ -70,7 +70,7 @@ public class ContaOccorrenzeParole implements Parole {
 		
 		String parolaLC = parola.toLowerCase();
 		
-		if (this.wordsOccurrences.size() < this.maxParole) {
+		if (this.maxParole == -1 || this.wordsOccurrences.size() < this.maxParole) {
 			
 			// Se è già presente incremento il valore di 1, altrimenti la inserisco nella mappa e la inizializzo a 1
 			if (exists(parolaLC)) {

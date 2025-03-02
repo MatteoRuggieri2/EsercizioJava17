@@ -36,5 +36,18 @@ class ContaOccorrenzeParoleTest {
 		cop = new ContaOccorrenzeParole(10);
 		assertEquals(10, cop.getMaxParole());
 	}
+	
+	@Test
+	void testCostructorString() {
+		String string = "Ciao sono Matteo";
+		
+		Map<String, Integer> wordsOccurrences = new HashMap<>();
+		wordsOccurrences.put("ciao", 1);
+		wordsOccurrences.put("sono", 1);
+		wordsOccurrences.put("matteo", 1);
+		
+		cop = new ContaOccorrenzeParole(string);
+		assertTrue(wordsOccurrences.equals(cop.getWordsOccurrences()));
+	}
 
 }
