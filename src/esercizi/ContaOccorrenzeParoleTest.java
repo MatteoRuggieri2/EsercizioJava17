@@ -64,5 +64,16 @@ class ContaOccorrenzeParoleTest {
 		assertFalse(cop.exists("MOUSE"));
 		assertFalse(cop.exists("Mouse"));
 	}
+	
+	@Test
+	void testDeleteParola() {
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse");
+		cop.deleteParola("Schermo");
+		cop.deleteParola("mouse");
+		
+		assertFalse(cop.getWordsOccurrences().containsKey("schermo"));
+		assertFalse(cop.getWordsOccurrences().containsKey("mouse"));
+		assertTrue(cop.getWordsOccurrences().containsKey("tastiera"));
+	}
 
 }
