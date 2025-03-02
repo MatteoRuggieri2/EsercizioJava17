@@ -4,29 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class ContaOccorrenzeParole implements Parole {
 	
 	private String strInput;
 	
-	private int maxParole; //TODO Quando lo uso?
-	
-//	private String paroleInput;
-	
-//	private String[] paroleInputArr;
+	private int maxParole;
 	
 	private Map<String, Integer> wordsOccurrences = new HashMap<>();
-
-//	public static void main(String[] args) {
-//		ContaOccorrenzeParole contaOccorrenzeParole = new ContaOccorrenzeParole();
-//		contaOccorrenzeParole.run();
-//
-//	}
 	
-//	private void run() {
-//		System.out.println("play");
-//	}
 	
 	// Inizializza l'istanza senza alcuna parola predefinita
 	ContaOccorrenzeParole () {
@@ -167,6 +153,7 @@ public class ContaOccorrenzeParole implements Parole {
 	@Override
 	public void setInputString(String strInput) {
 		this.strInput = strInput;
+		insertWordsFromArrayToMap(this.strInput.split(" +"));
 	}
 	
 	// Inserisce tutte le parole di un array nella mappa "wordsOccurrences"
