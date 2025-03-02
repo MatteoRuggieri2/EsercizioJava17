@@ -152,7 +152,8 @@ public class ContaOccorrenzeParole implements Parole {
 			}
  		}
 		
-		return (String[]) wordList.toArray();
+		return wordList.toArray(new String[0]);
+
 	}
 
 	// Questo funzione ritorna il numero massimo di occorrenze

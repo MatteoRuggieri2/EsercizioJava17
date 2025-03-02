@@ -2,6 +2,7 @@ package esercizi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -94,5 +95,20 @@ class ContaOccorrenzeParoleTest {
 		assertEquals(-1, cop.occorrenzeParola("WEBCAM"));
 		assertEquals(-1, cop.occorrenzeParola("Webcam"));
 	}
+	
+	@Test
+	void testParoleConMaxOccorrenze() {
+		String[] wordList = { "schermo", "mouse" };
 
+		cop = new ContaOccorrenzeParole("schermo", "tastiera", "schermo", "mouse", "mouse");
+		String[] result = cop.paroleConMaxOccorrenze();
+		
+		/* Ordino gli array dato che "assertArrayEquals" controlla anche l'ordine,
+		non facendolo il test potrebbe fallire nonostante gli elementi contenuti
+		al loro interno siano gli stessi. */
+		Arrays.sort(wordList);
+		Arrays.sort(result);
+
+		assertArrayEquals(wordList, result);
+	}
 }
